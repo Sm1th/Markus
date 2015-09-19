@@ -3,13 +3,11 @@ rvm:
   - 2.1.2
 
 before_install:
-  - sudo echo host localhost >> ~/.ssh/config
-  - sudo echo   user git >> ~/.ssh/config
-  - sudo echo   identityfile ~/git >> ~/.ssh/config
-  - sudo echo   port 22 >> ~/.ssh/config
-  - sudo echo NoHostAuthenticationForLocalhost yes >> ~/.ssh/config
-  - sudo apt-get update -qq
-  - sudo apt-get install -y sshpass
+  - echo host localhost >> ~/.ssh/config
+  - echo   user git >> ~/.ssh/config
+  - echo   identityfile ~/git >> ~/.ssh/config
+  - echo   port 22 >> ~/.ssh/config
+  - echo NoHostAuthenticationForLocalhost yes >> ~/.ssh/config
   - ssh-keygen -f ~/.ssh/id_rsa -t rsa -N ''
   - sudo adduser -disabled-password --gecos "" git
   - echo "git:password" | sudo chpasswd
@@ -64,3 +62,13 @@ notifications:
   email: false
 
 bundler_args: --retry 10
+
+addons:
+  apt:
+    packages:
+    - sshpass
+
+cache:
+  bundler
+  
+sudo: false
