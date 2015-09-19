@@ -49,7 +49,7 @@ addons:
     - libssh2*
     - libgit2*
     - ruby1.9.1-dev
-    - libaprutil1-dev
+    - libaprutil1
     - swig
 
 cache:
