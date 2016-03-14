@@ -1091,6 +1091,12 @@ module Repository
       return self.timestamp
     end
 
+    # Return the names of changed files at this revision at 'path'
+    def changed_filenames_at_path(path)
+      # TODO: implement
+      []
+    end
+
     private
 
     # Returns the last modified date and author in an array given
